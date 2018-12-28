@@ -21,8 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         String[] myArray = {"Syed Umer Hasan","Syeda Sara Hasan" , "Syed Huzaifa Hasan",
         "Syed Osama Hasan", "Syeda Saba Hasan"};
-        final ListAdapter myAdapter = new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,
-                myArray);
+        final ListAdapter myAdapter = new MyListViewAdapter(MainActivity.this,myArray);
         final ListView myListView = (ListView) findViewById(R.id.myListView);
         myListView.setAdapter(myAdapter);
 
@@ -30,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String familyName = "You selected " +
-                        String.valueOf(myListView.getItemAtPosition(position));
-//                        Toast myToast.makeText(MainActivity.this,familyName,Toast.LENGTH_SHORT).show();
+                String.valueOf(myListView.getItemAtPosition(position));
                 Toast.makeText(MainActivity.this, (String)familyName,
                         Toast.LENGTH_LONG).show();
             }
